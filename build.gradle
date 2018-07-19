@@ -1,0 +1,54 @@
+buildscript {
+    ext.gae_version = '1.9.54'
+    ext.kotlin_version = '1.1.3'
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "com.google.appengine:gradle-appengine-plugin:$gae_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'appengine'
+apply plugin: "kotlin"
+
+allprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    appengineSdk "com.google.appengine:appengine-java-sdk:$gae_version"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    compile "com.sparkjava:spark-kotlin:1.0.0-alpha"
+
+    compile 'javax.servlet:javax.servlet-api:3.1.0'
+
+    compile "com.google.appengine:appengine-api-1.0-sdk:$gae_version"
+    compile "com.google.appengine:appengine-tools-sdk:$gae_version"
+
+    compile 'com.google.guava:guava:19.0'
+
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+    testCompile "com.google.appengine:appengine-api-stubs:$gae_version", "com.google.appengine:appengine-testing:$gae_version"
+}
+
+appengine {
+    downloadSdk = true
+    appcfg {
+        oauth2 = true
+    }
+}
