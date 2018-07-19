@@ -35,6 +35,8 @@ dependencies {
 
     compile 'javax.servlet:javax.servlet-api:3.1.0'
 
+    compile 'com.google.cloud:google-cloud-pubsub:1.35.0'
+
     compile "com.google.appengine:appengine-api-1.0-sdk:$gae_version"
     compile "com.google.appengine:appengine-tools-sdk:$gae_version"
 

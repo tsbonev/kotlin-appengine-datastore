@@ -7,7 +7,6 @@ import org.junit.After
 import org.junit.Before
 import com.google.appengine.api.datastore.FetchOptions.Builder.withLimit
 import com.google.appengine.repackaged.com.google.gson.Gson
-import com.google.appengine.repackaged.com.google.protobuf.util.JsonFormat
 import org.junit.Test
 import kotlin.test.assertEquals
 import org.hamcrest.CoreMatchers.`is` as Is
